@@ -18,11 +18,11 @@
     socketNotificationReceived: function(notification, payload){
         //console.log("=========== notification received: " + notification);
         if (notification === 'FLICKR_GET') {
-            this.getImagesFromJSON(payload);
+            this.getImagesFromJSON(payload.url, payload.size);
         }
     },
     
-    getImagesFromJSON: function(api_url) {
+    getImagesFromJSON: function(api_url, size) {
         //console.log('============ HERE =================');
         var self = this;
         request({url: api_url, method: 'GET'}, function(error, response, body) 
@@ -39,7 +39,16 @@
                 for (var i in items)
                 {
                     var title = items[i].title;
-                    var media = items[i].media.m;
+                    if (['o', 't', 'b', 's'].includes(size))
+                    {
+                        var image = items[i].media.m;
+                        var s_dot = image.lastIndexOf('.');
+                        var media = image.substring(0, s_dot - 1) + size + image.substring(s_dot);
+                    }
+                    else
+                    {
+                        var media = items[i].media.m;
+                    }
                     
                     //console.log("title: " + title + "\nmedia: " + media.m);
                     
