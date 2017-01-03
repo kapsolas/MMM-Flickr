@@ -13,6 +13,7 @@ Module.register('MMM-Flickr', {
         format: 'json',
         lang: 'en-us',
         id: '',
+        size: 'm',
         animationSpeed: 1000,
         updateInterval: 60000, // 10 minutes
         loadingText: 'Loading...'
@@ -45,8 +46,11 @@ Module.register('MMM-Flickr', {
         // the notifications are not working for some reason... so we won't do anything asynchronously
         // we will just make the call to the method to get the object with photo links....
         //Log.info('sending socket notification: FLICKR_GET and URL: ' + this.url);
-        this.sendSocketNotification("FLICKR_GET", this.url);
-        
+        this.sendSocketNotification("FLICKR_GET", {
+            'url': this.url,
+            'size': this.config.size.toLocaleLowerCase()}
+        );
+
         // this may not be needed... need to think about it.
         //setTimeout(this.grabPhotos, this.config.interval, this);
     },

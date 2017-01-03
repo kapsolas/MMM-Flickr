@@ -24,6 +24,7 @@ Here is an example of an entry in `config.js`
 		id: 'user_id_of_user_whose_photostream_to_view',
 		animationSpeed: 2500,  
 		updateInterval: 10000
+		size: 'm' //Default is m, can be o=original, t=thumbnail, s= 75x75, b=1024
 	}
 },
 ```
