@@ -79,7 +79,6 @@ Module.register('MMM-Flickr', {
 
         // image
         var imageLink = document.createElement('div');
-        //imageLink.innerHTML = "<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>";
         imageLink.id = "MMM-Flickr-image";
         imageLink.innerHTML = "<img src='" + tempimage.photolink + "'>";
 
