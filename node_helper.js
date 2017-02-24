@@ -39,7 +39,7 @@
                 for (var i in items)
                 {
                     var title = items[i].title;
-                    if (['o', 't', 'b', 's'].includes(size))
+                    if (['o', 't', 'b', 's', 'm', 'c'].includes(size))
                     {
                         var image = items[i].media.m;
                         var s_dot = image.lastIndexOf('.');
