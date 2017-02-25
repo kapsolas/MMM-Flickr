@@ -18,19 +18,19 @@ Module.register('MMM-Flickr', {
         updateInterval: 60000, // 10 minutes
         loadingText: 'Loading...'
     },
-    
+
     // Define required scripts
     getScripts: function() {
         return ["moment.js"];
     },
-    
+
     /*
     // Define required translations
     getTranslations: function() {
         return false;
     },
     */
-    
+
     // Define start sequence
     start: function() {
         Log.info('Starting module: ' + this.name);
@@ -54,8 +54,8 @@ Module.register('MMM-Flickr', {
         // this may not be needed... need to think about it.
         //setTimeout(this.grabPhotos, this.config.interval, this);
     },
-    
-    
+
+
     getStyles: function() {
         return ['flickr.css', 'font-awesome.css'];
     },
@@ -69,23 +69,22 @@ Module.register('MMM-Flickr', {
             wrapper.innerHTML = this.config.loadingText;
             return wrapper;
         }
-        
+
         // set the first item in the list...
         if (this.activeItem >= this.images.photo.length) {
             this.activeItem = 0;
         }
-        
+
         var tempimage = this.images.photo[this.activeItem];
-        
+
         // image
         var imageLink = document.createElement('div');
-        //imageLink.innerHTML = "<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>";
         imageLink.id = "MMM-Flickr-image";
         imageLink.innerHTML = "<img src='" + tempimage.photolink + "'>";
-        
+
         imageDisplay.appendChild(imageLink);
         wrapper.appendChild(imageDisplay);
-       
+
         return wrapper;
     },
 
@@ -107,7 +106,7 @@ Module.register('MMM-Flickr', {
 
     /*
      * getParams()
-     * returns the query string required for the request to flickr to get the 
+     * returns the query string required for the request to flickr to get the
      * photo stream of the user requested
      */
     getParams: function() {
@@ -126,15 +125,15 @@ Module.register('MMM-Flickr', {
         {
             //Log.info('received FLICK_IMAGE_LIST');
             this.images = payload;
-            
+
             //Log.info("count: " +  this.images.photo.length);
-            
+
             // we want to update the dom the first time and then schedule next updates
             if (!this.loaded) {
             this.updateDom(1000);
                 this.scheduleUpdateInterval();
             }
-            
+
             this.loaded = true;
         }
     }
