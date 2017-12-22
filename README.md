@@ -23,7 +23,7 @@ Here is an example of an entry in `config.js`
 	config: {
 		id: 'user_id_of_user_whose_photostream_to_view',
 		animationSpeed: 2500,
-		updateInterval: 10000
+		updateInterval: 10000,
 		size: 'm' // Default is m, can be o=original, t=thumbnail, s= 75x75, b=1024
 		          // 'z' medium 640, 640 on longest side. 'c' medium 800, 800 on longest side
 	}
