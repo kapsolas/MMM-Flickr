@@ -11,7 +11,7 @@ The entry in `config.js` can include the following options:
 
 |Option|Description|
 |---|---|
-|`id`|The userid of the user whose photostream to pull images from [here](Instructions to be provided in future).<br><br>**Type:** `string`<br>This value is **REQUIRED**|
+|`id`|The userid of the user whose photostream to pull images from. You can find a user's ID [here](https://www.webpagefx.com/tools/idgettr/).<br><br>**Type:** `string`<br>This value is **REQUIRED**|
 |`animationSpeed`|How long the fade out and fade in of photos should take.<br><br>This value is **REQUIRED**|
 |`updateInterval`|How long before refreshing image list.<br><br>This value is **REQUIRED**|
 
